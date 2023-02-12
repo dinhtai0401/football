@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "npm i tsc",
     "build": "cd server && tsc && cd ../client && npm install --prefix client && npm run build",
     "start": "node dist/index.js"
   },
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/dinhtai0401/FootBall-Exercise/issues"
   },
-  "homepage": "https://github.com/dinhtai0401/FootBall-Exercise#readme"
+  "homepage": "https://github.com/dinhtai0401/FootBall-Exercise#readme",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
 }
