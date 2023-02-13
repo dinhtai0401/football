@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export const getAllTeams = () => {
-    return axios
+export const getAllTeams = async () => {
+    return await axios
     .get('/api/v1/teams')
     .then((result) => {
         return result
@@ -9,8 +9,8 @@ export const getAllTeams = () => {
     .catch((err) => console.error('getAllTeams failed. Reason: ', err))
 }
 
-export const getAllStandings = () => {
-    return axios
+export const getAllStandings = async () => {
+    return await axios
     .get('/api/v1/standings')
     .then((result) => {
         return result
@@ -18,8 +18,8 @@ export const getAllStandings = () => {
     .catch((err) => console.error('getAllStandings failed. Reason: ', err))
 }
 
-export const getAllMatches = () => {
-    return axios
+export const getAllMatches = async () => {
+    return await axios
     .get('/api/v1/matches')
     .then((result) => {
         return result
@@ -27,39 +27,37 @@ export const getAllMatches = () => {
     .catch((err) => console.error('getAllMatches failed. Reason: ', err))
 }
 
-export const createTeams = (teamName) => {
+export const createTeams = async (teamName) => {
     const data = {
         teams: teamName
     }
-    return axios
+    return await axios
     .post('/api/v1/teams', data)
     .then((result) => {
-        console.log(result)
         return result
     })
     .catch((err) => console.error('createTeams failed. Reason: ', err))
 }
 
-export const editMatch = (matchId, homeTeamGoal, awayTeamGoal) => {
+export const  editMatch = async (matchId, homeTeamGoal, awayTeamGoal) => {
     const data = {
         homeTeamGoal,
         awayTeamGoal
     }
-    return axios
+    console.log(data);
+    return await axios
     .put('/api/v1/match/' + matchId, data)
     .then((result) => {
-        console.log(result)
         return result
     })
     .catch((err) => console.error('editMatch failed. Reason: ', err))
 }
 
 
-export const deleteData = () => {
-    return axios
+export const deleteData = async () => {
+    return await axios
     .delete('/api/v1/deleteall')
     .then((result) => {
-        console.log(result)
         return result
     })
     .catch((err) => console.error('deleteData failed. Reason: ', err))

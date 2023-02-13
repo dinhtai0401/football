@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 import { Schema } from 'mongoose';
 import Match, { IMatch } from '../../models/Match';
 import Standing from '../../models/Standing';
-import Team from '../../models/Team';
 import { winToAddScore, drawToAddScore } from '../../utils/constants';
 import logger from '../../library/logger';
 
@@ -19,7 +18,7 @@ const createMatch = async (homeTeamId: Schema.Types.ObjectId, awayTeamId: Schema
 
 const getAllMatches = async (req: Request, res: Response, next: NextFunction) => {
     const matches = await Match.find({});
-       
+
     return res.status(200).json({ data: matches });
 };
 

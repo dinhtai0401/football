@@ -10,7 +10,7 @@ const router = express.Router();
 
 /** GET */
 router.get('/api/v1/teams', promiseHandler(teams.getAllTeams));
-router.get('/api/v1/standings', promiseHandler(standings.getAllStandings));
+router.get('/api/v1/standings', promiseHandler(standings.getStandings));
 router.get('/api/v1/matches', promiseHandler(matches.getAllMatches));
 
 /** POST */
