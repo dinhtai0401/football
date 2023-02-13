@@ -27,9 +27,9 @@ const getStandings = async (req: Request, res: Response, next: NextFunction) => 
 
     if (standings) {
         /** The team with most points wins */
-        standings.sort((a: IStanding, b: IStanding) => (a.points < b.points ? 1 : -1));
+        standings.sort((a: IStanding, b: IStanding) => (b.points - a.points || b.goals - a.goals));
         /** If two teams have equal amount of points, the team with more goals wins */
-        standings.sort((a: IStanding, b: IStanding) => (a.goals < b.goals ? 1 : -1));
+        //standings.sort((a: IStanding, b: IStanding) => (a.goals < b.goals ? 1 : -1));
         /** If the number of goals is equal, the team that won the match between the two teams wins */
         const duplicatedStandings = findDuplicatedSortStandings(standings);
         if (duplicatedStandings.length === 2) {
